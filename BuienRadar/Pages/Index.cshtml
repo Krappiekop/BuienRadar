@@ -4,4 +4,9 @@
     ViewData["Title"] = "Home page";
 }
 
+@* Toont de ruwe tekst uit de RuweData property van IndexModel op de pagina.
+@Model verwijst naar de PageModel die bij deze view hoort, in dit geval IndexModel.
+<pre> zorgt dat witruimte en regeleinden behouden blijven, zodat de JSON leesbaar opgemaakt blijft
+in plaats van als een lange aaneengesloten regel tekst te tonen. *@
+
 <pre>@Model.RuweData</pre>
