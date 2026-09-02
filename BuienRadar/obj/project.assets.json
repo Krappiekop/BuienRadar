@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Educom\\Cases\\Buienradar\\v1\\BuienRadar\\BuienRadar.csproj",
+      "projectUniqueName": "C:\\Educom\\Cases\\BuienRadar\\BuienRadar\\BuienRadar.csproj",
       "projectName": "BuienRadar",
-      "projectPath": "C:\\Educom\\Cases\\Buienradar\\v1\\BuienRadar\\BuienRadar.csproj",
+      "projectPath": "C:\\Educom\\Cases\\BuienRadar\\BuienRadar\\BuienRadar.csproj",
       "packagesPath": "C:\\Users\\barti\\.nuget\\packages\\",
-      "outputPath": "C:\\Educom\\Cases\\Buienradar\\v1\\BuienRadar\\obj\\",
+      "outputPath": "C:\\Educom\\Cases\\BuienRadar\\BuienRadar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\barti\\AppData\\Roaming\\NuGet\\NuGet.Config"

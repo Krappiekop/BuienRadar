@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BuienRadar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26f85017fc1df73198ef17c840d75148819523c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3820e01ae76703f1e8fb4d885125729658ced96")]
 [assembly: System.Reflection.AssemblyProductAttribute("BuienRadar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BuienRadar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

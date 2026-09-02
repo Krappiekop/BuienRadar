@@ -2,6 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient("json", client => { client.BaseAddress = new Uri("https://data.buienradar.nl/2.0/feed/"); });
+builder.Services.AddHttpClient("demo", client =>
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+});
 
 var app = builder.Build();
 
