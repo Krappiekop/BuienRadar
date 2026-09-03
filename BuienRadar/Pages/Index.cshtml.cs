@@ -11,6 +11,7 @@ public class IndexModel : PageModel
 
     [BindProperty(SupportsGet = true)]
     public string GekozenWeerStation { get; set; }
+    public string FoutMelding { get; set; }
 
     // Property waarin ik straks de opgehaalde JSON tekst opslaan, zodat de Razor pagina (Index.cshtml) deze via @Model.RuweData kan tonen.
     public BuienradarJSON Data { get; set; }
@@ -22,12 +23,15 @@ public class IndexModel : PageModel
         _client = factory.CreateClient("json");
     }
 
-    // Wordt automatisch uitgevoerd bij een normaal bezoek (GET) aan de pagina. async omdat we hierin gaan wachten op een netwerkaanroep, zonder de rest van de applicatie te blokkeren.
     public async Task OnGetAsync()
     {
-        // Doet een GET request naar BaseAddress + dit pad, dus in dit geval
-        // https://data.buienradar.nl/ + 2.0/feed/json.
-        // GetStringAsync geeft de ruwe response terug als platte tekst, zonder deserialisatie naar een class.
-        Data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
+        try
+        {
+            Data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
+        }
+        catch (HttpRequestException)
+        {
+            FoutMelding = "De gegevens konden niet worden opgehaald, probeer het later opnieuw.";
+        }
     }
 }
