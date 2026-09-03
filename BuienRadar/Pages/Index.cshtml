@@ -4,9 +4,25 @@
     ViewData["Title"] = "Home page";
 }
 
-@* Toont de ruwe tekst uit de RuweData property van IndexModel op de pagina.
-@Model verwijst naar de PageModel die bij deze view hoort, in dit geval IndexModel.
-<pre> zorgt dat witruimte en regeleinden behouden blijven, zodat de JSON leesbaar opgemaakt blijft
-in plaats van als een lange aaneengesloten regel tekst te tonen. *@
 
-<pre>@Model.RuweData</pre>
+@if (Model.Data.Actual.StationMeasurements != null){
+<p>Aantal actuele stations: @Model.Data.Actual.StationMeasurements.Count</p>
+}
+else
+{
+    <p>Gegevens worden geladen of zijn niet beschikbaar...</p>
+}
+
+@foreach (var x in Model.Data.Actual.StationMeasurements)
+{
+    <ul>
+        <li>@x.StationName</li>
+        <li>@x.Regio</li>
+        <li>@x.Temperature</li>
+        <li>@x.FeelTemperature</li>
+        <li>@x.GroundTemperature</li>
+        <li>@x.SunPower</li>
+        <li>@x.RainFallLastHour</li>
+        <li>@x.WindDirection</li>
+    </ul>
+}
