@@ -4,15 +4,6 @@
     ViewData["Title"] = "Home page";
 }
 
-@if (Model.Data.Actual.StationMeasurements != null)
-{
-    <p>Aantal actuele stations: @Model.Data.Actual.StationMeasurements.Count</p>
-}
-else
-{
-    <p>Gegevens worden geladen of zijn niet beschikbaar...</p>
-}
-
 <form method="get">
     <select name="GekozenWeerStation">
         <option value="">Kies een weerstation</option>
@@ -68,17 +59,7 @@ else
     <p>Kies een weerstation om de meting te zien.</p>
 }
 
-
-@* @foreach (var x in Model.Data.Actual.StationMeasurements)
-{
-    <ul>
-        <li>@x.StationName</li>
-        <li>@x.Regio</li>
-        <li>@x.Temperature</li>
-        <li>@x.FeelTemperature</li>
-        <li>@x.GroundTemperature</li>
-        <li>@x.SunPower</li>
-        <li>@x.RainFallLastHour</li>
-        <li>@x.WindDirection</li>
-    </ul>
-} *@
+<form method="get">
+    <input type="hidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation">
+    <button type="submit">Refresh</button>
+</form>
