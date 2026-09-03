@@ -1,1 +1,0 @@
-Hallo. dit is nu de Buienradar Repo. opdracht wordt in C# gemaakt.
