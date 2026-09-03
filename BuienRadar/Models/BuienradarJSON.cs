@@ -1,8 +1,5 @@
 using System.Text.Json.Serialization;
-
 namespace BuienRadar.Models;
-
-
 public class BuienradarJSON
 {
     [JsonPropertyName("actual")]

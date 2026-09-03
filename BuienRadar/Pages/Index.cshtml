@@ -5,15 +5,72 @@
 }
 
 
-@if (Model.Data.Actual.StationMeasurements != null){
-<p>Aantal actuele stations: @Model.Data.Actual.StationMeasurements.Count</p>
+@if (Model.Data.Actual.StationMeasurements != null)
+{
+    <p>Aantal actuele stations: @Model.Data.Actual.StationMeasurements.Count</p>
 }
 else
 {
     <p>Gegevens worden geladen of zijn niet beschikbaar...</p>
 }
 
-@foreach (var x in Model.Data.Actual.StationMeasurements)
+<form method="get">
+    <select name="GekozenWeerStation">
+        <option value="">Kies een weerstation</option>
+        @foreach (var x in Model.Data.Actual.StationMeasurements)
+        {
+            <option value="@x.StationName">@x.StationName</option>
+        }
+    </select>
+    <button type="submit">Toon weerstation</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.GekozenWeerStation))
+{
+    var gekozenPlek = Model.Data.Actual.StationMeasurements
+        .FirstOrDefault(c => c.StationName == Model.GekozenWeerStation);
+    <table>
+        <tr>
+            <td>Station Naam: </td>
+            <td>@gekozenPlek?.StationName</td>
+        </tr>
+        <tr>
+            <td>Regio: </td>
+            <td>@gekozenPlek?.Regio</td>
+        </tr>
+        <tr>
+            <td>Temperatuur</td>
+            <td>@gekozenPlek?.Temperature</td>
+        </tr>
+        <tr>
+            <td>Gevoels temperatuur</td>
+            <td>@gekozenPlek?.FeelTemperature</td>
+        </tr>
+        <tr>
+            <td>Grond temperatuur</td>
+            <td>@gekozenPlek?.GroundTemperature</td>
+        </tr>
+        <tr>
+            <td>Zonnekracht</td>
+            <td>@gekozenPlek?.SunPower</td>
+        </tr>
+        <tr>
+            <td>Neerslag in laatste uur: </td>
+            <td>@gekozenPlek?.RainFallLastHour</td>
+        </tr>
+        <tr>
+            <td>Windrichting: </td>
+            <td>@gekozenPlek?.WindDirection</td>
+        </tr>
+    </table>
+}
+else
+{
+    <p>Kies een weerstation om de meting te zien.</p>
+}
+
+
+@* @foreach (var x in Model.Data.Actual.StationMeasurements)
 {
     <ul>
         <li>@x.StationName</li>
@@ -25,4 +82,4 @@ else
         <li>@x.RainFallLastHour</li>
         <li>@x.WindDirection</li>
     </ul>
-}
+} *@

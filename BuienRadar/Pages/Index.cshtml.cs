@@ -9,6 +9,9 @@ public class IndexModel : PageModel
     // Veld om de HttpClient in te bewaren nadat we hem uit de constructor hebben gehaald.
     private readonly HttpClient _client;
 
+    [BindProperty(SupportsGet = true)]
+    public string GekozenWeerStation { get; set; }
+
     // Property waarin ik straks de opgehaalde JSON tekst opslaan, zodat de Razor pagina (Index.cshtml) deze via @Model.RuweData kan tonen.
     public BuienradarJSON Data { get; set; }
 
