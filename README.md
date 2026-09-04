@@ -37,24 +37,22 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 ## To do
 
 ### Al gedaan
-- [x] Razor Pages project opgezet en gedraaid
-- [x] Git repository geinitialiseerd en gepusht naar een private repository op GitHub
-- [x] `HttpClient` geregistreerd in `Program.cs` via `AddHttpClient`
-- [x] Modelklassen gemaakt voor de JSON structuur, met `JsonPropertyName` attributen
-- [x] Modelklassen verplaatst naar een aparte `Models` map met eigen namespace
-- [x] Data ophalen en deserialiseren in `OnGetAsync` met `GetFromJsonAsync`
-- [x] Alle stations tonen in een simpel lijstje, als eerste test
-- [x] Dropdown met alle weerstations, gekoppeld via `[BindProperty(SupportsGet = true)]`
-- [x] Geselecteerd station filteren met `FirstOrDefault` en tonen in een tabel
+- [x] Razor pages project opgezet en werkend gemaakt
+- [x] Versiebeheer ingericht en project naar een eigen (privé) repository gezet
+- [x] Verbinding met een externe API voorbereid in het project
+- [x] Datamodellen gemaakt die aansluiten op de structuur van de opgehaalde data
+- [x] Modellen overzichtelijk georganiseerd in een eigen map/namespace
+- [x] Data ophalen en verwerken vanuit de API werkend gemaakt
+- [x] Alle stations tonen in een simpele lijst, als eerste test
+- [x] Dropdown gemaakt met alle weerstations, gekoppeld aan de juiste eigenschap
+- [x] Geselecteerd station filteren en de gegevens overzichtelijk tonen in een tabel
+- [x] Handmatige refresh knop toevoegen (los van of in aanvulling op de "Toon weerstation" knop)
+- [x] Foutafhandeling: nette melding als de API niet bereikbaar is (try/catch rond de HttpClient aanroep)
+- [x] Foutafhandeling: nette melding als er geen station geselecteerd is of geen match gevonden wordt
+- [x] FontAwesome iconen toevoegen per meetwaarde (thermometer, druppel, kompas, en dergelijke)
+- [x] Bronvermelding met hyperlink naar buienradar.nl zichtbaar maken in de applicatie zelf, bijvoorbeeld in de footer
 
 ### Nog te doen
-- [ ] Handmatige refresh knop toevoegen (los van of in aanvulling op de "Toon weerstation" knop)
-- [ ] Foutafhandeling: nette melding als de API niet bereikbaar is (try/catch rond de HttpClient aanroep)
-- [ ] Foutafhandeling: nette melding als er geen station geselecteerd is of geen match gevonden wordt
 - [ ] Styling toepassen volgens het kleurenpalet (`#4ad6ed`, `#ffed00`, `#000000`, `#ffffff`)
 - [ ] Fonts instellen (Helvetica Neue voor koppen, Arial voor platte tekst)
-- [ ] FontAwesome iconen toevoegen per meetwaarde (thermometer, druppel, kompas, en dergelijke)
 - [ ] Layout op laten lijken op de mockup (desktop en mobiel)
-- [ ] Bronvermelding met hyperlink naar buienradar.nl zichtbaar maken in de applicatie zelf, bijvoorbeeld in de footer
-- [ ] Deze README verder aanvullen met de definitieve beschrijving van de gekozen aanpak
-- [ ] Docent uitnodigen als collaborator op de private GitHub repository

@@ -22,7 +22,6 @@ C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\rjsmcshtml.dswa.cache.js
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\scopedcss\bundle\BuienRadar.styles.css
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\scopedcss\projectbundle\BuienRadar.bundle.scp.css
-C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\compressed\m4ere86k15-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\compressed\vbr79fuvai-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\compressed\nsby8q6yi8-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\compressed\mlln86zpxd-{0}-t1cqhe9u97-t1cqhe9u97.gz
@@ -194,3 +193,4 @@ C:\Educom\Cases\Buienradar\BuienRadar\BuienRadar\obj\Debug\net10.0\refint\BuienR
 C:\Educom\Cases\Buienradar\BuienRadar\BuienRadar\obj\Debug\net10.0\BuienRadar.pdb
 C:\Educom\Cases\Buienradar\BuienRadar\BuienRadar\obj\Debug\net10.0\BuienRadar.genruntimeconfig.cache
 C:\Educom\Cases\Buienradar\BuienRadar\BuienRadar\obj\Debug\net10.0\ref\BuienRadar.dll
+C:\Educom\Cases\BuienRadar\BuienRadar\obj\Debug\net10.0\compressed\m4ere86k15-{0}-c8q98gonne-c8q98gonne.gz
