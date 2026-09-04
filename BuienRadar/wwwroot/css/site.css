@@ -9,7 +9,9 @@ html {
   font-size: 16px;
 }
 
-
+p {
+  font-family: Helvetica, Arial;
+}
 
 .btn:focus,
 .btn:active:focus,
@@ -27,7 +29,12 @@ html {
 }
 
 .navbar {
-  background-color: var(--cyan);
+  background-color: var(--white);
+  border-top: 10px solid var(--cyan)
+}
+
+.logo {
+ height: 70px;
 }
 
 body {
@@ -43,6 +50,22 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder,
 .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+.dropdown-stad {
+  height: 50px;
+  width: 70%;
+  padding-left: 25px;
+  background-color: var(--white);
+  border-radius: 25px;
+  border: 1px solid;
+}
+
+.form-stad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .cards-container {
@@ -68,6 +91,12 @@ body {
   color: var(--black);
 }
 
+/* .button-reset {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+} */
 
 @media (max-width: 768px) {
   html {

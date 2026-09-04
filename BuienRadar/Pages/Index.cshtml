@@ -15,15 +15,21 @@
 
 @if (dataIsOpgehaald)
 {
-    <form method="get">
-        <select name="GekozenWeerStation">
+    <form method="get" class="form-stad">
+        <select class="dropdown-stad" name="GekozenWeerStation" onchange="this.form.submit()">
+                        
             <option value="">Kies een weerstation</option>
             @foreach (var x in Model.Data.Actual.StationMeasurements)
             {
-                <option value="@x.StationName">@x.StationName</option>
+                @if (Model.GekozenWeerStation != x.StationName){
+                    <option value="@x.StationName">@x.StationName</option>
+                } else{
+                    <option value="@x.StationName" selected>@x.StationName</option>
+                }
+                
             }
         </select>
-        <button type="submit">Toon weerstation</button>
+        @* <button class="button-stad" type="submit">Toon weerstation</button> *@
     </form>
 
     @if (!string.IsNullOrEmpty(Model.GekozenWeerStation))
@@ -68,9 +74,9 @@
     {
         <p>Kies een weerstation om de meting te zien.</p>
     }
-
+@* 
     <form method="get">
         <input type="hidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation">
-        <button type="submit">Refresh</button>
-    </form>
+        <button type="submit" class="button-reset">Refresh</button>
+    </form> *@
 }
