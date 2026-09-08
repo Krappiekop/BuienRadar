@@ -1,7 +1,6 @@
-.gitignore
-    bin/
-    obj/
-    .vs/
-    *.user
-    *.suo
-    .DS_Store
+bin/
+obj/
+.vs/
+*.user
+*.suo
+.DS_Store
