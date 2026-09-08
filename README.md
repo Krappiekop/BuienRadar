@@ -9,7 +9,7 @@ Een ASP.NET Core Razor Pages applicatie die realtime weergegevens toont via de o
 - De gebruiker kiest een weerstation uit een dropdown, het formulier stuurt de keuze door via een GET request, en de pagina toont de gegevens van het gekozen station in een tabel
 
 ## Screenshots
-Optioneel: voeg hier een of twee screenshots toe van de werkende applicatie.
+
 
 ## Vereisten om te bouwen
 - .NET SDK 10.0 of hoger
@@ -53,6 +53,6 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 - [x] Bronvermelding met hyperlink naar buienradar.nl zichtbaar maken in de applicatie zelf, bijvoorbeeld in de footer
 
 ### Nog te doen
-- [ ] Styling toepassen volgens het kleurenpalet (`#4ad6ed`, `#ffed00`, `#000000`, `#ffffff`)
+- [x] Styling toepassen volgens het kleurenpalet (`#4ad6ed`, `#ffed00`, `#000000`, `#ffffff`)
 - [ ] Fonts instellen (Helvetica Neue voor koppen, Arial voor platte tekst)
 - [ ] Layout op laten lijken op de mockup (desktop en mobiel)
