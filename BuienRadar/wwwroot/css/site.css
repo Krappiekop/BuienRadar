@@ -84,8 +84,9 @@ body {
   display: grid;
   width: 70%;
   margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  justify-content: space-between;
+  grid-template-columns: 150px 150px 150px;
+  gap: 1em;
 }
 
 /* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
@@ -111,7 +112,7 @@ body {
 .card-waarde {
   font-family: "Helvetica Neue", Arial;
   font-size: 32px;
-  font-weight: bolder;
+  font-weight: 900;
   color: var(--cyan);
 }
 
