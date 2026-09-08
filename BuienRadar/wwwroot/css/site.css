@@ -6,6 +6,13 @@
   --white: #ffffff;
 }
 
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("/fonts/helvetica-neue.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
   font-size: 16px;
 }
@@ -38,6 +45,7 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: Arial;
 }
 
 .form-floating > .form-control-plaintext::placeholder,
@@ -67,6 +75,8 @@ body {
   background-color: var(--white);
   border-radius: 25px;
   border: 1px solid;
+  font-family: "Helvetica Neue", Arial;
+  font-size: 18px;
 }
 
 /* de container waar alle 6 de losse blokken meetgegevens in staan. */
@@ -80,10 +90,10 @@ body {
 
 /* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
 .card-outer {
-  display: flex;
-  width: 100%;
+  display: grid;
   align-items: center;
-  flex-direction: row;
+  justify-items: space-between;
+  grid-template-columns: 50px auto;
 }
 
 .card-outer i {
@@ -99,15 +109,17 @@ body {
 
 /* In het losse blok meetgegevens specifiek de gegevens uit de JSON (bijvoorbeeld de temperatuur) */
 .card-waarde {
+  font-family: "Helvetica Neue", Arial;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: bolder;
   color: var(--cyan);
 }
 
 /* In het losse blok de naam van de specifieke meetgegeven */
 .card-label {
-  font-size: 14px;
+  font-size: 9px;
   color: var(--black);
+  font-weight: bold;
 }
 
 /* .button-reset {
