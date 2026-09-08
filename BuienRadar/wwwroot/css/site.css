@@ -7,10 +7,10 @@
 }
 
 @font-face {
-    font-family: "Helvetica Neue";
-    src: url("/fonts/helvetica-neue.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Helvetica Neue";
+  src: url("/fonts/helvetica-neue.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -35,12 +35,12 @@ html {
 /* Witte navigation bar waar logo in staat met een blauwe border bovenaan */
 .navbar {
   background-color: var(--white);
-  border-top: 10px solid var(--cyan)
+  border-top: 10px solid var(--cyan);
 }
 
 /* Max grotte van logo */
 .logo {
- height: 70px;
+  height: 70px;
 }
 
 body {
@@ -86,7 +86,6 @@ body {
   margin: auto;
   justify-content: space-between;
   grid-template-columns: 150px 150px 150px;
-  gap: 1em;
 }
 
 /* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
@@ -98,7 +97,7 @@ body {
 }
 
 .card-outer i {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 /* de inner card blok (dus met de meetgegeven en label eronder) */
@@ -123,22 +122,56 @@ body {
   font-weight: bold;
 }
 
-/* .button-reset {
-  padding: 5px;
-  border-radius: 10px;
-  background-color: var(--white);
-  border: 1px solid var(--black);
-} */
-
 /* Als het scherm minder breed is als 768px dan zal hetgeen hieronder toegepast worden. */
 @media (max-width: 768px) {
   html {
     font-size: 14px;
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
   }
+
+  .form-stad {
+    margin-bottom: 20px;
+  }
+
+  .dropdown-stad {
+    height: 50px;
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .cards-container {
+    grid-template-columns: 120px 120px;
+    width: 90%;
+    gap: 10px;
+  }
+
+
+/* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
+.card-outer {
+  grid-template-columns: 40px auto;
+}
+
+
+/* de inner card blok (dus met de meetgegeven en label eronder) */
+/* .card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+} */
+
+/* In het losse blok meetgegevens specifiek de gegevens uit de JSON (bijvoorbeeld de temperatuur) */
+.card-waarde {
+  font-family: "Helvetica Neue", Arial;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--cyan);
+}
+
+/* In het losse blok de naam van de specifieke meetgegeven */
+.card-label {
+  font-size: 8px;
+  color: var(--black);
+  font-weight: bold;
+}
+
+
 }

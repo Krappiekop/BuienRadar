@@ -8,6 +8,10 @@
     var dataIsOpgehaald = Model.Data?.Actual?.StationMeasurements != null;
 }
 
+@{
+    var gesorteerdeLijst = Model.Data.Actual.StationMeasurements.OrderBy(c => c.Regio);
+}
+
 @if (Model.FoutMelding != null)
 {
     <p class="fout">@Model.FoutMelding</p>
@@ -19,15 +23,15 @@
         <select class="dropdown-stad" name="GekozenWeerStation" onchange="this.form.submit()">
 
             <option value="">Kies een weerstation</option>
-            @foreach (var x in Model.Data.Actual.StationMeasurements)
+            @foreach (var x in gesorteerdeLijst)
             {
-                @if (Model.GekozenWeerStation != x.StationName)
+                @if (Model.GekozenWeerStation != x.Regio)
                 {
-                    <option value="@x.StationName">@x.StationName</option>
+                    <option value="@x.Regio">@x.Regio</option>
                 }
                 else
                 {
-                    <option value="@x.StationName" selected>@x.StationName</option>
+                    <option value="@x.Regio" selected>@x.Regio</option>
                 }
 
             }
@@ -38,7 +42,7 @@
     @if (!string.IsNullOrEmpty(Model.GekozenWeerStation))
     {
         var gekozenPlek = Model.Data.Actual.StationMeasurements
-            .FirstOrDefault(c => c.StationName == Model.GekozenWeerStation);
+            .FirstOrDefault(c => c.Regio == Model.GekozenWeerStation);
 
         <div class="cards-container">
             <div class="card-outer">
@@ -70,7 +74,7 @@
                 </div>
             </div>
             <div class="card-outer">
-                <i class="fa-solid fa-cloud-sun-rain"></i>
+                <i class="fa-solid fa-droplet"></i>
                 <div class="card-inner">
                     <span class="card-waarde">@(gekozenPlek?.RainFallLastHour)</span>
                     <span class="card-label">Regen laatste uur (mm)</span>
@@ -89,9 +93,4 @@
     {
         <p>Kies een weerstation om de meting te zien.</p>
     }
-    @*
-    <form method="get">
-        <input type="hidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation">
-        <button type="submit" class="button-reset">Refresh</button>
-    </form> *@
 }
