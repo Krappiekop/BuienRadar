@@ -1,3 +1,4 @@
+/* Vaste kleuren omgezet in variabelen */
 :root {
   --cyan: #4ad6ed;
   --yellow: #ffed00;
@@ -7,10 +8,6 @@
 
 html {
   font-size: 16px;
-}
-
-p {
-  font-family: Helvetica, Arial;
 }
 
 .btn:focus,
@@ -28,11 +25,13 @@ html {
   min-height: 100%;
 }
 
+/* Witte navigation bar waar logo in staat met een blauwe border bovenaan */
 .navbar {
   background-color: var(--white);
   border-top: 10px solid var(--cyan)
 }
 
+/* Max grotte van logo */
 .logo {
  height: 70px;
 }
@@ -52,6 +51,15 @@ body {
   text-align: start;
 }
 
+/* de form waar de stad keuze knop in staat */
+.form-stad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Keuze meetstation knop uiterlijk */
 .dropdown-stad {
   height: 50px;
   width: 70%;
@@ -61,31 +69,42 @@ body {
   border: 1px solid;
 }
 
-.form-stad {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
+/* de container waar alle 6 de losse blokken meetgegevens in staan. */
 .cards-container {
   display: grid;
+  width: 70%;
+  margin: auto;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 }
 
-.card {
+/* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
+.card-outer {
   display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
+  flex-direction: row;
 }
 
+.card-outer i {
+    font-size: 40px;
+}
+
+/* de inner card blok (dus met de meetgegeven en label eronder) */
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+/* In het losse blok meetgegevens specifiek de gegevens uit de JSON (bijvoorbeeld de temperatuur) */
 .card-waarde {
   font-size: 32px;
   font-weight: bold;
   color: var(--cyan);
 }
 
+/* In het losse blok de naam van de specifieke meetgegeven */
 .card-label {
   font-size: 14px;
   color: var(--black);
@@ -98,6 +117,7 @@ body {
   border: 1px solid var(--black);
 } */
 
+/* Als het scherm minder breed is als 768px dan zal hetgeen hieronder toegepast worden. */
 @media (max-width: 768px) {
   html {
     font-size: 14px;

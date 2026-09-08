@@ -17,16 +17,19 @@
 {
     <form method="get" class="form-stad">
         <select class="dropdown-stad" name="GekozenWeerStation" onchange="this.form.submit()">
-                        
+
             <option value="">Kies een weerstation</option>
             @foreach (var x in Model.Data.Actual.StationMeasurements)
             {
-                @if (Model.GekozenWeerStation != x.StationName){
+                @if (Model.GekozenWeerStation != x.StationName)
+                {
                     <option value="@x.StationName">@x.StationName</option>
-                } else{
+                }
+                else
+                {
                     <option value="@x.StationName" selected>@x.StationName</option>
                 }
-                
+
             }
         </select>
         @* <button class="button-stad" type="submit">Toon weerstation</button> *@
@@ -38,35 +41,47 @@
             .FirstOrDefault(c => c.StationName == Model.GekozenWeerStation);
 
         <div class="cards-container">
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-temperature-full"></i>
-                <span class="card-waarde">@gekozenPlek?.Temperature</span>
-                <span class="card-label">Temperatuur</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.Temperature</span>
+                    <span class="card-label">Actuele temperatuur</span>
+                </div>
             </div>
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-temperature-high"></i>
-                <span class="card-waarde">@gekozenPlek?.FeelTemperature</span>
-                <span class="card-label">Gevoels temperatuur</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.FeelTemperature</span>
+                    <span class="card-label">Gevoelstemperatuur</span>
+                </div>
             </div>
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-temperature-low"></i>
-                <span class="card-waarde">@gekozenPlek?.GroundTemperature</span>
-                <span class="card-label">Grond temperatuur</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.GroundTemperature</span>
+                    <span class="card-label">Grond temperatuur</span>
+                </div>
             </div>
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-sun"></i>
-                <span class="card-waarde">@gekozenPlek?.SunPower</span>
-                <span class="card-label">Zonnekracht</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.SunPower</span>
+                    <span class="card-label">Zonnekracht</span>
+                </div>
             </div>
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-cloud-sun-rain"></i>
-                <span class="card-waarde">@gekozenPlek?.RainFallLastHour</span>
-                <span class="card-label">Neerslag in laatste uur</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.RainFallLastHour</span>
+                    <span class="card-label">Regen laatste uur</span>
+                </div>
             </div>
-            <div class="card">
+            <div class="card-outer">
                 <i class="fa-solid fa-wind"></i>
-                <span class="card-waarde">@gekozenPlek?.WindDirection</span>
-                <span class="card-label">Windrichting</span>
+                <div class="card-inner">
+                    <span class="card-waarde">@gekozenPlek?.WindDirection</span>
+                    <span class="card-label">Windrichting</span>
+                </div>
             </div>
         </div>
     }
@@ -74,7 +89,7 @@
     {
         <p>Kies een weerstation om de meting te zien.</p>
     }
-@* 
+    @*
     <form method="get">
         <input type="hidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation">
         <button type="submit" class="button-reset">Refresh</button>
