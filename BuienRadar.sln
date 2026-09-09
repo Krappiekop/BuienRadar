@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuienRadar", "BuienRadar\BuienRadar.csproj", "{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eWeather.Backend", "eWeather.Backend\eWeather.Backend.csproj", "{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}.Release|x64.Build.0 = Release|Any CPU
 		{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}.Release|x86.ActiveCfg = Release|Any CPU
 		{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}.Release|x86.Build.0 = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|x64.Build.0 = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
