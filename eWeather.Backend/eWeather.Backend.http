@@ -1,6 +1,6 @@
 @eWeather.Backend_HostAddress = http://localhost:5075
 
-GET {{eWeather.Backend_HostAddress}}/weatherforecast/
+GET {{eWeather.Backend_HostAddress}}/WeerData/
 Accept: application/json
 
 ###
