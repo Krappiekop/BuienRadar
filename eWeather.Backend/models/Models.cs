@@ -16,9 +16,26 @@ public class DataUploadService : BackgroundService
             using (var scope = _scopeFactory.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<EWeatherContext>();
-                Console.WriteLine($"Aantal metingegn in database: {context.WeerMetings.Count()}");
+                
+
                 var data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
-                Console.WriteLine($"Aantal weerstations opgehaald: {data.Actual.StationMeasurements.Count}");
+                // Console.WriteLine($"Aantal weerstations opgehaald: {data.Actual.StationMeasurements.Count}");
+                var nieuweMetingen = data.Actual.StationMeasurements.Select(s => new WeerMeting
+                {
+                    Tijdstip = DateTime.UtcNow,
+                    Station = s.StationName,
+                    Temperature = s.Temperature,
+                    FeelTemperature = s.FeelTemperature,
+                    GroundTemperature = s.GroundTemperature,
+                    SunPower = s.SunPower,
+                    RainFallLastHour = s.RainFallLastHour,
+                    WindDirection = s.WindDirection
+                }).ToList();
+                // Console.WriteLine($"Aantal weerstations opgeslagen: {nieuweMetingen.Count}");
+                context.WeerMetingen.AddRange(nieuweMetingen);
+                await context.SaveChangesAsync();
+
+                Console.WriteLine($"Aantal metingen in database: {context.WeerMetingen.Count()}");
             }
 
             await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
@@ -29,13 +46,12 @@ public class DataUploadService : BackgroundService
 
 public class EWeatherContext : DbContext
 {
-    public DbSet<WeerMeting> WeerMetings { get; set; }
+    public DbSet<WeerMeting> WeerMetingen { get; set; }
     public EWeatherContext(DbContextOptions<EWeatherContext> options)
     : base(options)
     {
     }
 }
-
 
 public class WeerMeting
 {
@@ -47,5 +63,5 @@ public class WeerMeting
     public float GroundTemperature { get; set; }
     public float SunPower { get; set; }
     public float RainFallLastHour { get; set; }
-    public string WindDirection { get; set; }
+    public string? WindDirection { get; set; }
 }

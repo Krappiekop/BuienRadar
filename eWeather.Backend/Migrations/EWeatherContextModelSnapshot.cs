@@ -45,12 +45,11 @@ namespace eWeather.Backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("WindDirection")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeerMetings");
+                    b.ToTable("WeerMetingen");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace eWeather.Backend.Migrations
 {
     [DbContext(typeof(EWeatherContext))]
-    [Migration("20260909140302_InitialCreate")]
+    [Migration("20260910140825_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -48,12 +48,11 @@ namespace eWeather.Backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("WindDirection")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeerMetings");
+                    b.ToTable("WeerMetingen");
                 });
 #pragma warning restore 612, 618
         }

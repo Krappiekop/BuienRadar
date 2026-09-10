@@ -12,7 +12,7 @@ namespace eWeather.Backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "WeerMetings",
+                name: "WeerMetingen",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -24,11 +24,11 @@ namespace eWeather.Backend.Migrations
                     GroundTemperature = table.Column<float>(type: "REAL", nullable: false),
                     SunPower = table.Column<float>(type: "REAL", nullable: false),
                     RainFallLastHour = table.Column<float>(type: "REAL", nullable: false),
-                    WindDirection = table.Column<string>(type: "TEXT", nullable: false)
+                    WindDirection = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WeerMetings", x => x.Id);
+                    table.PrimaryKey("PK_WeerMetingen", x => x.Id);
                 });
         }
 
@@ -36,7 +36,7 @@ namespace eWeather.Backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "WeerMetings");
+                name: "WeerMetingen");
         }
     }
 }
