@@ -1,11 +1,26 @@
 using Microsoft.EntityFrameworkCore;
+using eWeather.Backend.Models;
 public class DataUploadService : BackgroundService
 {
+    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly HttpClient _client;
+    public DataUploadService(IServiceScopeFactory scopeFactory, IHttpClientFactory clientFactory)
+    {
+        _scopeFactory = scopeFactory;
+        _client = clientFactory.CreateClient("json");
+    }
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            Console.WriteLine("Logging...");
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<EWeatherContext>();
+                Console.WriteLine($"Aantal metingegn in database: {context.WeerMetings.Count()}");
+                var data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
+                Console.WriteLine($"Aantal weerstations opgehaald: {data.Actual.StationMeasurements.Count}");
+            }
+
             await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
         }
     }
