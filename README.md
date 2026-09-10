@@ -36,7 +36,7 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 
 ## To do
 
-### Al gedaan
+### Opdracht 1: eWeather Frontend
 - [x] Razor pages project opgezet en werkend gemaakt
 - [x] Versiebeheer ingericht en project naar een eigen (privé) repository gezet
 - [x] Verbinding met een externe API voorbereid in het project
@@ -51,8 +51,24 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 - [x] Foutafhandeling: nette melding als er geen station geselecteerd is of geen match gevonden wordt
 - [x] FontAwesome iconen toevoegen per meetwaarde (thermometer, druppel, kompas, en dergelijke)
 - [x] Bronvermelding met hyperlink naar buienradar.nl zichtbaar maken in de applicatie zelf, bijvoorbeeld in de footer
-
-### Nog te doen
 - [x] Styling toepassen volgens het kleurenpalet (`#4ad6ed`, `#ffed00`, `#000000`, `#ffffff`)
-- [ ] Fonts instellen (Helvetica Neue voor koppen, Arial voor platte tekst)
-- [ ] Layout op laten lijken op de mockup (desktop en mobiel)
+- [x] Fonts instellen (Helvetica Neue voor koppen, Arial voor platte tekst)
+- [x] Layout op laten lijken op de mockup (desktop en mobiel)
+
+### Opdracht 2: backend met periodieke Buienradar polling
+- [x] Nieuw Web API project (`eWeather.Backend`) toegevoegd aan bestaande solution
+- [x] Basis minimal API endpoint opgezet en werkend getest (`/weerdata`)
+- [x] Query parameters toegevoegd: station (met standaardwaarde), startdatum (verplicht), einddatum (optioneel, standaard 7 dagen na startdatum)
+- [x] Datamodel ontworpen (`WeerMeting` entity)
+- [x] EF Core en SQLite packages toegevoegd
+- [x] `DbContext` (`EWeatherContext`) opgezet en geregistreerd via dependency injection
+- [x] Migration aangemaakt en lokale SQLite database gegenereerd
+- [ ] Configuratiebestand voor polling interval en bewaarperiode (`appsettings.json`)
+- [ ] `BackgroundService` bouwen voor periodieke Buienradar polling
+- [ ] Opgehaalde data wegschrijven naar de database
+- [ ] Oude data buiten de bewaarperiode opruimen
+- [ ] `/weerdata` endpoint aanpassen zodat het echt uit de database leest, in plaats van voorbeelddata
+- [ ] Filteren op station, startdatum en einddatum in de databasequery
+- [ ] Volledige flow testen (polling, opslag, opvragen via API)
+- [ ] Koppeling met bestaande eWeather frontend (mogelijk buiten scope opdracht 2, apart oppakken)
+- [ ] README bijwerken met opstartinstructies voor de backend

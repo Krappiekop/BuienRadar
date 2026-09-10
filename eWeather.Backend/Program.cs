@@ -9,6 +9,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<EWeatherContext>(options =>
     options.UseSqlite("Data Source=eweather.db"));
 
+builder.Services.AddHostedService<DataUploadService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

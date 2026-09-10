@@ -1,4 +1,16 @@
 using Microsoft.EntityFrameworkCore;
+public class DataUploadService : BackgroundService
+{
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            Console.WriteLine("Logging...");
+            await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
+        }
+    }
+}
+
 
 public class EWeatherContext : DbContext
 {
