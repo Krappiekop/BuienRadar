@@ -31,34 +31,27 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station = "Eindhoven") =>
+
+
+app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, EWeatherContext context, string Station) =>
 {
     var effectiveEndDate = EndDate ?? StartDate.AddDays(7);
+    DateTime beginGrens = StartDate.ToDateTime(TimeOnly.MinValue);
+    DateTime eindGrens = effectiveEndDate.AddDays(1).ToDateTime(TimeOnly.MinValue);
 
-    var forecast =
-        new StationMeting
-        (
-            StartDate,
-            effectiveEndDate,
-            Station,
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        )
-        ;
-    return forecast;
+    var WeergaveGegevens = context.WeerMetingen
+        .Where(m => m.Station == Station
+            && m.Tijdstip >= beginGrens
+            && m.Tijdstip < eindGrens)
+        .OrderBy(m => m.Tijdstip)
+        .ToList();
+    return WeergaveGegevens;
 })
 .WithName("GetWeerData");
 
 app.Run();
 
-record StationMeting(DateOnly Startdate, DateOnly EndDate, string Station, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+
 
 
