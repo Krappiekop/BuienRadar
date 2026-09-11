@@ -64,8 +64,8 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 - [x] `DbContext` (`EWeatherContext`) opgezet en geregistreerd via dependency injection
 - [x] Migration aangemaakt en lokale SQLite database gegenereerd
 - [ ] Configuratiebestand voor polling interval en bewaarperiode (`appsettings.json`)
-- [ ] `BackgroundService` bouwen voor periodieke Buienradar polling
-- [ ] Opgehaalde data wegschrijven naar de database
+- [x] `BackgroundService` bouwen voor periodieke Buienradar polling
+- [x] Opgehaalde data wegschrijven naar de database
 - [ ] Oude data buiten de bewaarperiode opruimen
 - [ ] `/weerdata` endpoint aanpassen zodat het echt uit de database leest, in plaats van voorbeelddata
 - [ ] Filteren op station, startdatum en einddatum in de databasequery

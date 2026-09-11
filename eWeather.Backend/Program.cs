@@ -19,6 +19,8 @@ builder.Services.AddHttpClient("json", client =>
     client.BaseAddress = new Uri("https://data.buienradar.nl/"); 
 });
 
+builder.Services.Configure<WeerAPIOpties>(builder.Configuration.GetSection(nameof(WeerAPIOpties)));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

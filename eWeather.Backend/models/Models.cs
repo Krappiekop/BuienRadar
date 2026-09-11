@@ -1,13 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using eWeather.Backend.Models;
 public class DataUploadService : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly HttpClient _client;
-    public DataUploadService(IServiceScopeFactory scopeFactory, IHttpClientFactory clientFactory)
+    private readonly IOptions<WeerAPIOpties> _opties;
+
+    public DataUploadService(IServiceScopeFactory scopeFactory, IHttpClientFactory clientFactory, IOptions<WeerAPIOpties> options)
     {
         _scopeFactory = scopeFactory;
         _client = clientFactory.CreateClient("json");
+        _opties = options;
     }
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -16,10 +20,8 @@ public class DataUploadService : BackgroundService
             using (var scope = _scopeFactory.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<EWeatherContext>();
-                
-
                 var data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
-                // Console.WriteLine($"Aantal weerstations opgehaald: {data.Actual.StationMeasurements.Count}");
+
                 var nieuweMetingen = data.Actual.StationMeasurements.Select(s => new WeerMeting
                 {
                     Tijdstip = DateTime.UtcNow,
@@ -31,18 +33,33 @@ public class DataUploadService : BackgroundService
                     RainFallLastHour = s.RainFallLastHour,
                     WindDirection = s.WindDirection
                 }).ToList();
-                // Console.WriteLine($"Aantal weerstations opgeslagen: {nieuweMetingen.Count}");
                 context.WeerMetingen.AddRange(nieuweMetingen);
                 await context.SaveChangesAsync();
 
+
+                var GrensDatum = DateTime.UtcNow.AddDays(-_opties.Value.BewaarPeriodeDagen);
+
+                // Gegevens ophalen die aan voorwaarden voldoen (waarvan tijdstip ouder is dan de grensdatum)
+                var OudeGegevens = context.WeerMetingen
+                    .Where(x => x.Tijdstip < GrensDatum)
+                    .ToList();
+
+                // Weghalen van de geselecteerde gegevens uit de dataset
+                if (OudeGegevens.Any())
+                {
+                    context.WeerMetingen.RemoveRange(OudeGegevens);
+                    await context.SaveChangesAsync();
+                }
+
+                Console.WriteLine($"Aantal metingen opgeslagen: {nieuweMetingen.Count}");
+                Console.WriteLine($"Aantal metingen verwijderd: {OudeGegevens.Count}");
                 Console.WriteLine($"Aantal metingen in database: {context.WeerMetingen.Count()}");
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
+            await Task.Delay(TimeSpan.FromMinutes(_opties.Value.OphaalIntervalMinuten), stoppingToken);
         }
     }
 }
-
 
 public class EWeatherContext : DbContext
 {
@@ -64,4 +81,12 @@ public class WeerMeting
     public float SunPower { get; set; }
     public float RainFallLastHour { get; set; }
     public string? WindDirection { get; set; }
+}
+
+
+// Klasse voor de Config bestand opties
+public class WeerAPIOpties
+{
+    public int OphaalIntervalMinuten { get; set; }
+    public int BewaarPeriodeDagen { get; set; }
 }
